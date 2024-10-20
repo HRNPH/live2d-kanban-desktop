@@ -4,33 +4,33 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Kanban Desktop</title>
     <link rel="stylesheet" type="text/css" href="includes/waifu.css?v=1.4.2"/>
-	<!-- waifu-tips.js 核心组件 -->
+	<!-- waifu-tips.js core component -->
 	<script src="includes/waifu-tips.js"></script>
-	<!-- waifu-tips.js 依赖 JQuery 库 -->
+	<!-- waifu-tips.js dependent on JQuery library -->
 	<script src="includes/jquery.min.js?v=3.3.1"></script>
-	<!-- 实现拖动效果，需引入 JQuery UI -->
+	<!-- to implement drag effect, JQuery UI needs to be imported -->
 	<script src="includes/jquery-ui.js?v=1.12.1"></script>
-	<!-- waifu-tips.js 依赖 Live2d 库 -->
+	<!-- waifu-tips.js dependent on Live2d library -->
 	<script src="includes/live2d.js?v=1.0.5"></script>
 	<!-- autoload 异步加载库 -->
 	<!--<script src="includes/autoload.js"></script>-->
 	<!-- chatgpt 库函数 -->
 	<script src="./includes/gpt.js"></script>
-	<!-- cubism V5.0支持 -->
+	<!-- support for cubism V5.0 -->
 	<script src="./cubism_v3/pixi/pixi.min.js"></script>
 	<script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
-	<script src="../live2dcubismcore.min.js"></script> <!--本地备份源-->
+	<script src="../live2dcubismcore.min.js"></script> <!--local backup source-->
 	<script src="./cubism_v3/framework/live2dcubismframework.js"></script>
 	<script src="./cubism_v3/framework/live2dcubismpixi.js"></script>
 	<script src="./cubism_v3/loadModel.js"></script>    
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> <!--时间日期设定库-->
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> <!--time and date setting library-->
 	<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
 	<script src="https://npmcdn.com/flatpickr/dist/l10n/zh.js"></script>
 </head>
 <style type="text/css">
 	input::-webkit-input-placeholder {
-    /* 修改字体颜色 */
+    /* modify font color */
     color: #CBCBCB;
 	}
 	::-webkit-scrollbar-track{
@@ -49,46 +49,46 @@
         <div class="waifu-tips" id="NLPAnswerBox"></div>
 		<div id="live2ds" style="position: relative;width: 300px;height: 360px;">
         <canvas id="live2d" class="live2d"></canvas></div><!--Live2D 主画布-->
-		<div id= "NLPInfinite" class="NLPInfinite"> <!--日程设置页面-->
+		<div id= "NLPInfinite" class="NLPInfinite"> <!--schedule setting page-->
 			<div id="timesetHeader" style="font-size: 13px;text-align: center;"></div>
 			<svg t="1596338443527" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7582" width="25" height="25" onclick="document.getElementById('NLPInfinite').style.display = 'none';">
 			<path d="M785.92 361.984H517.12V243.2c0-27.136-36.864-65.536-76.8-30.208-39.936 34.816-220.672 225.28-245.248 249.344-28.672 28.672-21.504 76.288 0 98.304 24.064 24.576 205.312 215.552 245.248 250.368 39.936 35.328 76.8-3.072 76.8-30.208v-118.784h268.8c33.792 0 61.44-27.648 61.44-61.44V423.424c0-33.792-27.136-61.44-61.44-61.44z" fill="#ffffff" p-id="7583" data-spm-anchor-id="a313x.7781069.0.i14" class="selected"></path>
 			</svg>
 			<div style="top:25px;text-align: center;position:absolute">
-				<div id="TimeDisplay" style="margin-bottom:15px;color: azure;font-size:14px ">当前没有日程</div>
-				<input type="text" id="contextset" name="text" placeholder=" 输入你的日程内容" class="timeset" style="text-align: center;" required><!--日程设定-->
-				<input type="text" id="timeset" name="text" placeholder=" 输入你想提示的时间" class="timeset" style="text-align: center;margin-top: 10px;" onclick="fp_timeset.open()" required><!--日程提醒-->
+				<div id="TimeDisplay" style="margin-bottom:15px;color: azure;font-size:14px ">no current schedule</div>
+				<input type="text" id="contextset" name="text" placeholder=" Enter your schedule content" class="timeset" style="text-align: center;" required><!--日程设定-->
+				<input type="text" id="timeset" name="text" placeholder=" Enter the time you want to be reminded" class="timeset" style="text-align: center;margin-top: 10px;" onclick="fp_timeset.open()" required><!--日程提醒-->
 				<div style="margin-top:12px;">
 					<button id="timesetButton" class="timesetButton"></button> 
 					<button id="timeresetButton" class="timeresetButton"></button>
 				</div>
 			</div>
-		</div>                                     <!--定时设置辅助层-->
-		<div id="NLPask" class="NLPask">            <!--应答iframe-->
+		</div>                                     <!--schedule setting auxiliary layer-->
+		<div id="NLPask" class="NLPask">            <!--response iframe-->
 			<span class="fui-cross" onclick="document.getElementById('NLPask').style.display = 'none';document.getElementById('nlp').value='';" style=" font-size: 13px;z-index: 5px;position: absolute;background-image:url(./assets/bg.jpg);padding:5px;right: 0px; border-radius: 5px;" ></span>
 			<iframe id="myiframe1" name="myiframe" width="100%" height="100%"  style= "border: medium none;" scrolling="auto"></iframe>
 		</div>
-		<!--改版的NLP对话框-->
+		<!--revised NLP dialog-->
 		<div class="NLPAsk" id="NLPx">
 			<div style="top:0px;background-image:url(./assets/box.jpg);color: #fff;text-align: center;">
 				<form id="AskBox" action="https://www.zerolite.cn/NLP.php" method="post" target="myiframe" name="formphp" align="left" class="AskBox" >
-					<input type="text" id="nlp" name="text" placeholder="输入你的话(。・∀・)ノ" style="border-radius:14px;background-image:url(./assets/box.jpg);border:0px;outline:none;font-size: 15px;margin-left: 5px;height: 27px;width: 160px;color: azure;" align="left" required>
+					<input type="text" id="nlp" name="text" placeholder="Chat Here. (。・∀・)ノ" style="border-radius:14px;background-image:url(./assets/box.jpg);border:0px;outline:none;font-size: 15px;margin-left: 5px;height: 27px;width: 160px;color: azure;" align="left" required>
 					<span class="fui-ask" onclick="NLPChange();" id="toolask"  style="text-align: right;border-radius: 12px;font-size: 15px; position: absolute;line-height: 29px;right: 12px;" ></span>
 					<input type="submit" id="nlpsubmit" name="submit" onkeypress= "none" onclick="document.getElementById('NLPask').style.display = 'block';Search_Engine();" >
 				</form>
 			</div>
 		</div>
-		<!--工具箱按钮及主要功能-->
+		<!--toolbox buttons and main functions-->
 		<div class="waifu-tool" id= "WAIFUTOOL ICON" style="text-align:center; display:table-cell;  margin-bottom: 35px;top: 230px;width: 35px;border-radius: 12px; background-image:url(./assets/bg.jpg);opacity:0.9;box-shadow: 0px 0px 15px #2F2F2F;font-size: 19px;
-		bottom: 0px;padding-top: 3px;"><!--工具箱按钮及主要功能-->
+		bottom: 0px;padding-top: 3px;"><!--toolbox buttons and main functions-->
 			<span class="fui-toolicon" onclick="toolopen()" id="toolicon"> </span>
 			<span class="fui-eyeProtInfo"> </span>
 			<span class="fui-cross" id = "crosser"> </span>
 			<!--<span class="fui-settings"></span>-->
 		</div>
-		<!--工具箱功能页-->
+		<!--toolbox function page-->
         <div class="waifu-tool" id= "NLP2" style="text-align:center;background-image:url(./assets/bg.jpg);opacity:0.9;display:table-cell;width: 35px;border-radius: 12px;box-shadow: 0px 0px 15px #2F2F2F;padding-top: 5px;
-    padding-bottom: 3px;font-size:19px;"><!--工具箱功能页面-->
+    padding-bottom: 3px;font-size:19px;"><!--toolbox function page面-->
             <!--<span class="fui-home"></span>-->
             <span class="fui-chat"></span>
             <span class="fui-eye"></span>
@@ -106,12 +106,12 @@
 
 		var click=0;var nlp=0;var Change=0;
 		document.getElementById('NLPask').style.display = 'none';
-		if(localStorage.getItem("NLPChange")=="Search") //恢复记忆NLP栏状态
+		if(localStorage.getItem("NLPChange")=="Search") //restore NLP bar status
 		{	
 			Change+=1;
 			$("#AskBox").attr('onsubmit','return false'); //禁止回车提交
 			document.getElementById("toolask").className="fui-home";  //更换图标（改class）
-			document.getElementById("NLPask").style.width="0px";      //更换框大小
+			document.getElementById("NLPask").style.width="0px";      //change frame size
 			document.getElementById("NLPask").style.height="0px";
 			document.getElementById('NLPask').style.display = 'none';  //先把打开的框关掉
 			$("#nlpsubmit").attr("onclick","document.getElementById('NLPask').style.display = 'block';Search_Engine();");
@@ -127,7 +127,7 @@
 			$("#nlpsubmit").attr("onclick","document.getElementById('NLPask').style.display='block';OpenRouterRun(document.getElementById('nlp').value,'ChatBox');") //更换onclick动作
 		}
 
-		// 时间日期设定库初始化
+		// time and date setting library初始化
 		const fp_timeset = flatpickr("#timeset", {
 			enableTime: true, // 启用时间选择
 			minDate: "today",
@@ -138,7 +138,7 @@
 		});
 
 
-        function toolopen() /****展开工具栏****/	
+        function toolopen() /****expand toolbar****/	
 		{
 			if (click%2===0)
 			{
@@ -151,7 +151,7 @@
 			click=click+1;
 		}
 		
-		function Search_Engine() /****搜索拉起****/
+		function Search_Engine() /****trigger search****/
 		{
 			var SearchURL = 0;
 			if(Change%2===1) 
@@ -163,10 +163,10 @@
 			}
 		}
 
-		function NLPChange() /****切换搜索和NLP****/	
+		function NLPChange() /****switch between search and NLP****/	
 		{
 			Change+=1;
-			if (Change%2===0) //切换NLP对话模式
+			if (Change%2===0) //switch to NLP conversation mode
 			{
 				if(localStorage.getItem("ChatGPTFunc")=="true"){ //ChatGPT调用
 					$("#AskBox").attr('onsubmit','return false'); //禁止回车提交
@@ -179,17 +179,17 @@
 					document.getElementById("NLPask").style.height="0px"; //iframe隐藏
 				}
 				else{document.getElementById("NLPask").style.height="70px";
-				document.getElementById("AskBox").removeAttribute("onsubmit");} //使用腾讯NLP时允许回车提交
+				document.getElementById("AskBox").removeAttribute("onsubmit");} //使用allow enter submission during Tencent NLP
 				document.getElementById("NLPask").style.width="200px";  //操作方法如else
 				document.getElementById("toolask").className="fui-ask";
 				document.getElementById('NLPask').style.display='none';  //先把打开的框关掉
 				localStorage.setItem("NLPChange","NLP");
 			}
-			else if (Change%2===1) //切换搜索模式
+			else if (Change%2===1) //switch to search mode
 			{
 				$("#AskBox").attr('onsubmit','return false'); //禁止回车提交
 				document.getElementById("toolask").className="fui-home";  //更换图标（改class）
-				document.getElementById("NLPask").style.width="0px";      //更换框大小
+				document.getElementById("NLPask").style.width="0px";      //change frame size
 				document.getElementById("NLPask").style.height="0px";
 				document.getElementById('NLPask').style.display = 'none';  //先把打开的框关掉
 				$("#nlpsubmit").attr("onclick","document.getElementById('NLPask').style.display = 'block';Search_Engine();");
@@ -199,7 +199,7 @@
 
 		function getval(){document.cookie = "status=1"; }
 
-		if(localStorage.getItem('unlimitedDrag') == 'true') //判定是否开启拖拽
+		if(localStorage.getItem('unlimitedDrag') == 'true') //determine whether to enable dragging
 		{document.getElementById('GlobalDragLine').style.display = 'block';}
 		else {document.getElementById('GlobalDragLine').style.display = 'none';}
     </script>

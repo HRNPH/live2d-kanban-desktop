@@ -22,8 +22,8 @@ window.nodeRequire = require;
 delete window.require;
 delete window.exports;
 delete window.module;
-const { ipcRenderer,shell } = nodeRequire('electron'); //Electron 依赖调入
-const notifier = nodeRequire('node-notifier'); //node-notifier 通知模块
+const { ipcRenderer,shell } = nodeRequire('electron'); //Electron dependency loading
+const notifier = nodeRequire('node-notifier'); //node-notifier notification module
 const WindowsToaster = nodeRequire('node-notifier').WindowsToaster; //WindowsToaster 通知
 
 // 后端接口
@@ -33,21 +33,21 @@ live2d_settings.hitokotoAPI          = 'hitokoto.cn';                // 一言 A
 live2d_settings.eyeProtInfo          = true;                         //启用使用时长提醒
 
 //使用时长提醒需要的变量
-var setTime = 0; //设定的提醒时间(单位分钟)
-var isTimeSet = false; //是否启用？
-var date,TargetTime = 0;//停止时间
-var timer; var timercontext; //日程定时变量
-var Quality = 2; //渲染精度变量
-var ShowMessageLocker = 0; //对话泡进程锁
+var setTime = 0; //set reminder time (in minutes)
+var isTimeSet = false; //enabled?
+var date,TargetTime = 0;//end time
+var timer; var timercontext; //schedule timer variable
+var Quality = 2; //rendering quality variable
+var ShowMessageLocker = 0; //dialog process lock
 
 
-// 默认模型
-live2d_settings.modelId              = 3;           // 默认模型 ID，可在 F12 控制台找到
-live2d_settings.modelTexturesId      = 58;          // 默认材质 ID，可在 F12 控制台找到
+// default model
+live2d_settings.modelId              = 3;           // default model ID，可在 F12 控制台找到
+live2d_settings.modelTexturesId      = 58;          // 默认texture ID, can be found in F12 console
 
-// 工具栏设置
-live2d_settings.showToolMenu         = true;         // 显示 工具栏 ，可选 true(真), false(假)
-live2d_settings.alwaysshowToolMenu   = true;         // 不隐藏 工具栏 *作为桌面版本使用时建议开启，可选 true(真), false(假)
+// toolbar settings
+live2d_settings.showToolMenu         = true;         // show toolbar ，可选 true(真), false(假)
+live2d_settings.alwaysshowToolMenu   = true;         // do not hide toolbar *作为桌面版本使用时建议开启，可选 true(真), false(假)
 live2d_settings.canCloseLive2d       = true;         // 显示 关闭看板娘  按钮，可选 true(真), false(假)
 live2d_settings.canSwitchModel       = true;         // 显示 模型切换    按钮，可选 true(真), false(假)
 live2d_settings.canSwitchTextures    = true;         // 显示 材质切换    按钮，可选 true(真), false(假)
@@ -57,36 +57,36 @@ live2d_settings.canTurnToHomePage    = false;        // 显示 返回首页    �
 live2d_settings.canTurnToAboutPage   = true;         // 显示 跳转关于页  按钮，可选 true(真), false(假)
 live2d_settings.canEyesCare          = true;         // 显示 夜间模式    按钮，可选 true(真), false(假)
 
-// 模型切换模式
+// model switching mode
 live2d_settings.modelStorage         = true;         // 记录 ID (刷新后恢复)，可选 true(真), false(假)
 live2d_settings.modelRandMode        = 'switch';     // 模型切换，可选 'rand'(随机), 'switch'(顺序)
 live2d_settings.modelTexturesRandMode= 'rand';       // 材质切换，可选 'rand'(随机), 'switch'(顺序)
 
-// 提示消息选项
-live2d_settings.showHitokoto         = true;         // 显示一言
-live2d_settings.showF12Status        = true;         // 显示加载状态
-live2d_settings.showF12Message       = true;         // 显示看板娘消息
-live2d_settings.showF12OpenMsg       = true;         // 显示控制台打开提示
-live2d_settings.showWelcomeMessage   = true;         // 显示进入页面欢迎词
+// notification message options
+live2d_settings.showHitokoto         = true;         // show quote
+live2d_settings.showF12Status        = true;         // show loading status
+live2d_settings.showF12Message       = true;         // show model messages
+live2d_settings.showF12OpenMsg       = true;         // show console open message
+live2d_settings.showWelcomeMessage   = true;         // show welcome message
 
-//看板娘样式设置
-live2d_settings.waifuSize            = '300x360';    // 看板娘大小，例如 '280x250', '600x535'
-live2d_settings.waifuTipsSize        = '263x72';     // 提示框大小，例如 '250x70', '570x150'
-live2d_settings.waifuFontSize        = '17px';       // 提示框字体，例如 '12px', '30px'
-live2d_settings.waifuToolFont        = '20px';       // 工具栏字体，例如 '14px', '36px'
-live2d_settings.waifuToolLine        = '30px';       // 工具栏行高，例如 '20px', '36px'
-live2d_settings.waifuToolTop         = '-60px';      // 工具栏顶部边距，例如 '0px', '-60px'
-live2d_settings.waifuMinWidth        = 'disable';    // 面页小于 指定宽度 隐藏看板娘，例如 'disable'(禁用), '768px'
-live2d_settings.waifuEdgeSide        = 'left:0';     // 看板娘贴边方向，例如 'left:0'(靠左 0px), 'right:30'(靠右 30px)
-live2d_settings.waifuDraggable       = 'unlimited';    // 拖拽样式，例如 'disable'(禁用), 'axis-x'(只能水平拖拽), 'unlimited'(自由拖拽)
-live2d_settings.waifuDraggableRevert = true;         // 松开鼠标还原拖拽位置，可选 true(真), false(假)
+//model style settings
+live2d_settings.waifuSize            = '300x360';    // model size，例如 '280x250', '600x535'
+live2d_settings.waifuTipsSize        = '263x72';     // tooltip size，例如 '250x70', '570x150'
+live2d_settings.waifuFontSize        = '17px';       // tooltip font size，例如 '12px', '30px'
+live2d_settings.waifuToolFont        = '20px';       // toolbar font size，例如 '14px', '36px'
+live2d_settings.waifuToolLine        = '30px';       // toolbar line height，例如 '20px', '36px'
+live2d_settings.waifuToolTop         = '-60px';      // toolbar top margin，例如 '0px', '-60px'
+live2d_settings.waifuMinWidth        = 'disable';    // hide model if page width is less than specified，例如 'disable'(禁用), '768px'
+live2d_settings.waifuEdgeSide        = 'left:0';     // model edge position，例如 'left:0'(靠左 0px), 'right:30'(靠右 30px)
+live2d_settings.waifuDraggable       = 'unlimited';    // dragging style，例如 'disable'(禁用), 'axis-x'(只能水平拖拽), 'unlimited'(自由拖拽)
+live2d_settings.waifuDraggableRevert = true;         // reset position after dragging，可选 true(真), false(假)
 
-// 其他杂项设置
-live2d_settings.l2dVersion           = '2.8.0';                               // 当前版本
-live2d_settings.l2dVerDate           = '2023-11-26';                          // 版本更新日期
-live2d_settings.homePageUrl          = 'https://www.zerolite.cn/';            // 主页地址，已弃用
-live2d_settings.aboutPageUrl         = 'https://www.zerolite.cn/';            // 关于页地址
-live2d_settings.screenshotCaptureName= 'kanban.png';                          // 看板娘截图文件名，例如 'live2d.png'
+// miscellaneous settings
+live2d_settings.l2dVersion           = '2.8.0';                               // current version
+live2d_settings.l2dVerDate           = '2023-11-26';                          // version update date
+live2d_settings.homePageUrl          = 'https://www.zerolite.cn/';            // homepage URL (deprecated)
+live2d_settings.aboutPageUrl         = 'https://www.zerolite.cn/';            // about page URL
+live2d_settings.screenshotCaptureName= 'kanban.png';                          // model screenshot filename，例如 'live2d.png'
 
 /****************************************************************************************************/
 
@@ -274,7 +274,7 @@ function loadModel(modelId, modelTexturesId=0) {
         if (localStorage.getItem('localModelPath').slice(-11) == 'model3.json') 
         loadModelV3() // ! Cubism 3 模型加载支持 
         else          // ! Cubism 2 模型加载支持
-        loadlive2d('live2d', localStorage.getItem('localModelPath'), (live2d_settings.showF12Status ? console.log('[Status]','live2d',localStorage.getItem('localModelPath'),'本地模型加载完成'):null));
+        loadlive2d('live2d', localStorage.getItem('localModelPath'), (live2d_settings.showF12Status ? console.log('[Status]','live2d',localStorage.getItem('localModelPath'),'Local model loading complete.'):null));
     }
     else
     {
@@ -284,7 +284,8 @@ function loadModel(modelId, modelTexturesId=0) {
         } else {
             sessionStorage.setItem('modelId', modelId);
             sessionStorage.setItem('modelTexturesId', modelTexturesId);
-        } loadlive2d('live2d', live2d_settings.modelAPI+'get/?id='+modelId+'-'+modelTexturesId, (live2d_settings.showF12Status ? console.log('[Status]','live2d','模型',modelId+'-'+modelTexturesId,'加载完成'):null));
+        } loadlive2d('live2d', live2d_settings.modelAPI+'get/?id='+modelId+'-'+modelTexturesId, (live2d_settings.showF12Status ? console.log('[Status]','live2d','Model',modelId+'-'+modelTexturesId,'Loading complete.'):null));
+
     }
     //输出图片
 }
@@ -426,7 +427,7 @@ function loadTipsMessage(result) {
     
     function modelStorageGetItem(key) { return live2d_settings.modelStorage ? localStorage.getItem(key) : sessionStorage.getItem(key); }
     
-    /*********************** 检测用户活动状态，并在空闲时显示一言 **************************/
+    /*********************** 检测用户活动状态，并在空闲时show quote **************************/
     
     if (live2d_settings.showHitokoto) {
         window.getActed = false; window.hitokotoTimer = 0; window.hitokotoInterval = false;
@@ -541,7 +542,7 @@ function loadTipsMessage(result) {
     /*夜间模式*/
     $('.waifu-tool .fui-moon').click(function () { cover(0.3); showMessage('夜间模式开启成功!按alt+↑可提高亮度,按alt+↓可降低亮度,按alt+x可取消夜间模式', 5000, true) });
 	
-    /*日程提醒模块点击*/
+    /*schedule reminder module click*/
 	if(live2d_settings.eyeProtInfo){
 	$('.waifu-tool .fui-eyeProtInfo').click(function (){ScheduleShow();});
     function ScheduleShow(){
@@ -554,7 +555,7 @@ function loadTipsMessage(result) {
 		{
             let date_temp = new Date();
             let scheduleDate = new Date(scheduleDateStr);
-            document.getElementById('TimeDisplay').innerHTML = "距日程提醒剩余 "+((parseInt(scheduleTime)-date_temp.getTime()+scheduleDate.getTime())/60000).toFixed(1)+" 分钟";
+            document.getElementById('TimeDisplay').innerHTML = "Time until reminder "+((parseInt(scheduleTime)-date_temp.getTime()+scheduleDate.getTime())/60000).toFixed(1)+" 分钟";
             document.getElementById('contextset').value=scheduleName;
             isTimeSet = true;
             setTime = scheduleTime;
@@ -562,7 +563,7 @@ function loadTipsMessage(result) {
         }
 		// if(isTimeSet === true && setTime != "" && setTime > 0)
         // {let date_temp = new Date();document.getElementById('TimeDisplay').innerHTML = "距日程提醒剩余 "+((setTime-date_temp.getTime()+date.getTime())/60000).toFixed(1)+" 分钟";}    
-		else {document.getElementById('TimeDisplay').innerHTML = "当前没有安排的日程";}
+		else {document.getElementById('TimeDisplay').innerHTML = "No scheduled events.";}
         }
 	}
 	
@@ -571,14 +572,14 @@ function loadTipsMessage(result) {
 	{
         var audio = new Audio("./Alert Alarms/alert0.mp3"); // 这里的路径为mp3文件在项目中的绝对路径
 		// timer = setInterval(function(){
-            showMessage('你所预定的日程['+timercontext+']的提醒时间已经到了!',5000,true); //['+setTime+']
+            showMessage('Your scheduled event['+timercontext+']The reminder time has arrived.!',5000,true); //['+setTime+']
             var notifyIconPath = "./assets/alarm.png";
             ipcRenderer.invoke('get-is-packaged').then((isPackaged) => {  //判断是否打包,若打包则使用打包后路径
                 if (isPackaged) {notifyIconPath=__dirname.replaceAll("\\", '/')+"../../app.asar.unpacked/assets/alarm.png"} 
                 notifier.notify(
                     {
-                        title: '日程[ '+timercontext+' ]提醒',
-                        message: '你所预定的日程[ '+timercontext+' ]的提醒时间已经到了! \n点击下方按钮以忽略或关闭提醒。', //['+setTime+']
+                        title: 'Schedule[ '+timercontext+' ]Reminder',
+                        message: 'Your scheduled event [' + timercontext + '] reminder time has arrived! \nClick the button below to ignore or close the reminder. [' + setTime + ']',
                         icon: notifyIconPath,
                         actions: ['Dismiss','Cancel'],
                         wait: true ,
@@ -627,8 +628,8 @@ function loadTipsMessage(result) {
                     sessionStorage.setItem('ScheduleTime',null);
                     sessionStorage.setItem('ScheduleName',null);
                     sessionStorage.setItem('ScheduleDate',null);
-                    document.getElementById('TimeDisplay').innerHTML = "没有安排的日程";
-                    showMessage('你所预定的日程[ '+timercontext+' ]已经取消！',5000,true);
+                    document.getElementById('TimeDisplay').innerHTML = "No scheduled events";
+                    showMessage('Your scheduled event [' + timercontext + '] has been canceled!', 5000, true);
                 });
                 date = new Date();
                 sessionStorage.setItem('ScheduleDate',date);
@@ -678,7 +679,7 @@ function loadTipsMessage(result) {
             let targetDateday = targetDate.getDate().toString().padStart(2, '0');
             let targetDatehours = targetDate.getHours().toString().padStart(2, '0');
             let targetDateminutes = targetDate.getMinutes().toString().padStart(2, '0');
-            document.getElementById('TimeDisplay').innerHTML = "日程将在"+targetDatemonth+"月"+targetDateday+"日"+targetDatehours+":"+targetDateminutes+"提醒";
+            document.getElementById('TimeDisplay').innerHTML = "The event will be reminded on " + targetDatemonth + " month " + targetDateday + " day at " + targetDatehours + ":" + targetDateminutes;
             ipcRenderer.send('Schedule',[setTime,timercontext,date]);
             sessionStorage.setItem('ScheduleTime',setTime);
             sessionStorage.setItem('ScheduleName',timercontext);
@@ -702,6 +703,6 @@ function loadTipsMessage(result) {
         sessionStorage.setItem('ScheduleTime',null);
         sessionStorage.setItem('ScheduleName',null);
         sessionStorage.setItem('ScheduleDate',null);
-		document.getElementById('TimeDisplay').innerHTML = "没有安排的日程";
+		document.getElementById('TimeDisplay').innerHTML = "No scheduled events";
 	});
 }

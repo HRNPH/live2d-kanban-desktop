@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<script> //右键禁用,NodeRequire重定向
+<script> //Right-click disabled, NodeRequire redirection
     // document.oncontextmenu = function(){
-    // alert("当前页面不能使用右键！");
+    // alert("Right-click is disabled on this page!");
     // return false;
     // }
     window.nodeRequire = require;
@@ -28,18 +28,18 @@
             <a id="Title" style="height: 30px;line-height: 30px;position:absolute;left:40px;right:30%;text-align: left;">Kanban-Desktop</a>
         </div>
         <!-- <div class="closeset"  onclick="closeset();"><image src="./assets/Cross.png"></image></div> -->
-        <div class="setTab" id="setTab"> <!--设置tab-->
-            <h3 style="position:absolute;margin-left:15px;">设置</h3>
+        <div class="setTab" id="setTab"> <!--Settingstab-->
+            <h3 style="position:absolute;margin-left:15px;">Settings</h3>
             <div class="setTabBrickHighlight" id="setTabHighLight" style="right:293px"></div>
             <div class="setTabBrick" id="setTabA" style="right:280px" onclick="setpageA()">
                 <svg t="1658426400568" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15439" height=55% style='left:5px;'><path d="M682.666667 170.666667l21.333333 42.666666v320h128V213.333333l23.04-42.666666L832 64h-128l-21.333333 106.666667z" fill="#90A4AE" p-id="15440"></path><path d="M768 192c62.506667 0 64-128 64-128h-128s1.706667 128 64 128z" fill="#B0BEC5" p-id="15441"></path><path d="M680.746667 533.333333h174.506666l38.826667 183.253334a81.92 81.92 0 0 1 1.92 17.706666V874.666667a85.333333 85.333333 0 0 1-85.333333 85.333333h-85.333334a85.333333 85.333333 0 0 1-85.333333-85.333333v-140.373334a81.92 81.92 0 0 1 1.92-17.706666z" fill="#40A9FF" p-id="15442"></path><path d="M661.333333 448m21.333334 0l170.666666 0q21.333333 0 21.333334 21.333333l0 42.666667q0 21.333333-21.333334 21.333333l-170.666666 0q-21.333333 0-21.333334-21.333333l0-42.666667q0-21.333333 21.333334-21.333333Z" fill="#5C6BC0" p-id="15443"></path><path d="M234.666667 359.04V832a128 128 0 0 0 256 0V359.04zM362.666667 896a64 64 0 1 1 64-64 64 64 0 0 1-64 64z" fill="#FF9800" p-id="15444"></path><path d="M490.666667 410.666667H234.666667v45.44l256 87.893333v-133.333333z" fill="#EF6C00" p-id="15445"></path><path d="M466.986667 85.333333v209.92h-208.64V85.333333A234.666667 234.666667 0 0 0 128 294.186667 177.92 177.92 0 0 0 277.333333 469.333333a528 528 0 0 0 85.333334 7.253334 528 528 0 0 0 85.333333-7.253334 177.92 177.92 0 0 0 149.333333-175.36A234.666667 234.666667 0 0 0 466.986667 85.333333z" fill="#FF9800" p-id="15446"></path></svg>
-                &nbsp;&nbsp;&nbsp;&nbsp;功能<!--<div style="position:absolute;left: 8%;right: 8%;top:60%;font-size:1.8vw;">功能设置</div>--></div>
+                &nbsp;&nbsp;&nbsp;&nbsp;Features<!--<div style="position:absolute;left: 8%;right: 8%;top:60%;font-size:1.8vw;">功能Settings</div>--></div>
             <div class="setTabBrick" id="setTabB" onclick="setpageB()" style="right:175px">
                 <svg t="1658426137514" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3578" height=55% style='left:5px;'><path d="M114.0736 307.2l-1.4336 0.73728v418.33472L512 942.08V511.20128z" fill="#00000033" p-id="3579"></path><path d="M930.73408 302.72512L521.3184 92.16 128.50176 294.07232l-15.86176 8.2944L521.3184 501.76l4.79232-2.16064L931.84 303.45216v-0.3584l-1.10592-0.36864zM526.11072 499.6096L521.3184 501.76l4.79232-2.16064z" fill="#91D5FF" p-id="3580"></path><path d="M1006.40768 264.31488a68.21888 68.21888 0 0 0-29.04064-30.39232L548.00384 7.68a67.51232 67.51232 0 0 0-62.49472 0L56.50432 232.448a66.44736 66.44736 0 0 0-17.64352 15.74912 73.25696 73.25696 0 0 0-11.02848 14.27456A67.87072 67.87072 0 0 0 20.48 291.76832v439.33696a67.33824 67.33824 0 0 0 36.7616 59.31008l428.99456 224.79872c9.32864 5.29408 19.79392 8.31488 30.5152 8.78592h5.15072a64.53248 64.53248 0 0 0 26.10176-6.9632L976.9984 792.25856A67.33824 67.33824 0 0 0 1013.76 732.93824V291.76832a64.23552 64.23552 0 0 0-7.35232-27.45344z m-80.50688 39.90528l-404.3776 199.168-4.77184 2.56v427.25376L107.60192 719.02208V303.85152l15.81056-8.41728L516.75136 89.67168l408.04352 213.8112 1.10592 0.73728z" fill="#40A9FF" p-id="3581"></path></svg>
-                &nbsp;&nbsp;&nbsp;个性化<!--<div style="position:absolute;left: 1%;right: 1%;top:60%;font-size:1.8vw;">个性化设置</div>--></div>
+                &nbsp;&nbsp;&nbsp;Custom<!--<div style="position:absolute;left: 1%;right: 1%;top:60%;font-size:1.8vw;">个性化Settings</div>--></div>
             <div class="setTabBrick" id="setTabC" onclick="setpageC()"style="right:70px">
                 <svg class="icon" height=55% style='left:5px;' viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="856"><path d="M926.48448 781.15328l-272.97792-423.71072V160.03072h25.40544V92.16H350.1824v67.87072h25.43104v197.41184L102.62016 781.1584A97.792 97.792 0 0 0 184.9344 931.84h659.2512a97.76128 97.76128 0 0 0 82.29888-150.68672zM870.46656 848.384a29.33248 29.33248 0 0 1-26.28096 15.58528H184.9344a29.91104 29.91104 0 0 1-25.18016-46.08l283.8016-440.49408V160.03072h142.00832V377.3952l283.81184 440.48896a29.27104 29.27104 0 0 1 1.09056 30.49984z" fill="#5288F5" p-id="857"></path><path d="M652.288 572.63104H376.832v-68.4544h275.456v68.4544z" fill="#F79C42" p-id="858"></path></svg>
-                &nbsp;&nbsp;&nbsp;实验室<!--<div style="position:absolute;left: 8%;right: 8%;top:60%;font-size:1.7vw;">实验室与关于</div>--></div>
+                &nbsp;&nbsp;&nbsp;Lab<!--<div style="position:absolute;left: 8%;right: 8%;top:60%;font-size:1.7vw;">实验室与关于</div>--></div>
             <div class="setTabBrickSmall" id="setTabInfo" onclick="setpageInfo()"style="right:20px;">
                 <svg t="1670141928749" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3107" height=55%><path d="M512 1024A512 512 0 1 1 512 0a512 512 0 0 1 0 1024zM448 448v384h128V448H448z m0-256v128h128V192H448z" p-id="3108" id="info_icon" style="fill:#bbb"></path></svg>
                 </div>
@@ -47,152 +47,153 @@
         <div class="setpage" id="setpageA">
             <div class="setpageINNER">
             <!-- <form> -->
-                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">📱 工具栏设置</h3>
-                <div href="javascript:;" class="button" value="保存并应用" onclick="submitA();" style="top: 10px;user-select: none;width:auto" >&nbsp;&nbsp;保存并应用&nbsp;&nbsp;</div>
-                <div class="brickContainer">显示工具栏<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showToolbar"><div class="slider"></div></label></div>
-                <div class="brickContainer">不隐藏看板娘工具栏<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="noHideToolbar"><div class="slider"></div></label></div>
-                <div class="brickContainer">显示 最小化按钮<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showMinimum"><div class="slider"></div></label></div>
-                <div class="brickContainer">显示 模型切换按钮<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showModelSwitch"><div class="slider"></div></label></div>
-                <div class="brickContainer">显示 材质切换按钮<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showTextureSwitch"><div class="slider"></div></label></div>
-                <div class="brickContainer">显示 一言切换按钮<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showHitokotoSwitch"><div class="slider"></div></label></div>
-                <div class="brickContainer">显示 看板娘截图按钮<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showScreenShot"><div class="slider"></div></label></div>
-                <div class="brickContainer">显示 跳转关于页按钮<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showInfo"><div class="slider"></div></label></div>
-                <div class="brickContainer">显示 夜间模式按钮<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showNightmode"><div class="slider"></div></label></div>
-                <div class="brickContainer">显示 返回首页按钮<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showMainpage"><div class="slider"></div></label></div>
+                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">📱 Toolsbar Settings</h3>
+                <div href="javascript:;" class="button" value="Save and Apply" onclick="submitA();" style="top: 10px;user-select: none;width:auto" >&nbsp;&nbsp;Save and Apply&nbsp;&nbsp;</div>
+                <div class="brickContainer">Show Toolbar<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showToolbar"><div class="slider"></div></label></div>
+                <div class="brickContainer">Always Show Toolbar<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="noHideToolbar"><div class="slider"></div></label></div>
+                <div class="brickContainer">Show Minimize Button<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showMinimum"><div class="slider"></div></label></div>
+                <div class="brickContainer">Show Model Switch Button<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showModelSwitch"><div class="slider"></div></label></div>
+                <div class="brickContainer">Show Texture Switch Button<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showTextureSwitch"><div class="slider"></div></label></div>
+                <div class="brickContainer">Show Quote Switch Button<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showHitokotoSwitch"><div class="slider"></div></label></div>
+                <div class="brickContainer">Show Screenshot Button<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showScreenShot"><div class="slider"></div></label></div>
+                <div class="brickContainer">Show About Page Button<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showInfo"><div class="slider"></div></label></div>
+                <div class="brickContainer">Show Night Mode Button<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showNightmode"><div class="slider"></div></label></div>
+                <div class="brickContainer">Show Return to Homepage Button<label class="switch"><input class="input" type="checkbox" name="checkboxA" value="showMainpage"><div class="slider"></div></label></div>
                 <!-- <div class="box">
-                    <button type="button" value="保存并应用" onclick="submitA();" class="btn">保存并应用</button>
+                    <button type="button" value="Save and Apply" onclick="submitA();" class="btn">Save and Apply</button>
                 </div> -->
-                <!-- <input type="button" value="保存并应用" onclick="submitA()" style="margin-top:7px;"/> -->
+                <!-- <input type="button" value="Save and Apply" onclick="submitA()" style="margin-top:7px;"/> -->
             <!-- </form> -->
             </div>
         </div>
         <div class="setpage" id="setpageB" style="display: none;">
             <div class="setpageINNER">
             <!-- <form> -->
-                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">🧱 模型设置</h3>
-                <div href="javascript:;" class="button" value="保存并应用" onclick="submitB();" style="top: 10px;user-select: none;width:auto" >&nbsp;&nbsp;保存并应用&nbsp;&nbsp;</div>
-                <div class="brickContainer">模型随机切换<label class="switch"><input class="input" type="checkbox" name="checkboxB" value="modelRandSwitch" /><div class="slider"></div></label></div>
-                <div class="brickContainer">材质随机切换<label class="switch"><input class="input" type="checkbox" name="checkboxB" value="textureRandSwitch" /><div class="slider"></div></label></div>
-                <div class="brickContainer">显示一言<label class="switch"><input class="input" type="checkbox" name="checkboxB" value="showHitokoto" /><div class="slider"></div></label></div>
-                <div class="brickContainer">显示欢迎词<label class="switch"><input class="input" type="checkbox" name="checkboxB" value="showWelcome" /><div class="slider"></div></label></div>
-                <div class="brickContainer">自定义模型API<!-- <li style="margin-top:10px;margin-bottom:3px;">自定义模型API</li> --><input class="inputText" type="text" name="checkboxB" placeholder="输入自定义API地址" required></div>
+                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">🧱 Model Settings</h3>
+                <div href="javascript:;" class="button" value="Save and Apply" onclick="submitB();" style="top: 10px;user-select: none;width:auto" >&nbsp;&nbsp;Save and Apply&nbsp;&nbsp;</div>
+                <div class="brickContainer">Random Model Switch<label class="switch"><input class="input" type="checkbox" name="checkboxB" value="modelRandSwitch" /><div class="slider"></div></label></div>
+                <div class="brickContainer">Random Texture Switch<label class="switch"><input class="input" type="checkbox" name="checkboxB" value="textureRandSwitch" /><div class="slider"></div></label></div>
+                <div class="brickContainer">Show Quote<label class="switch"><input class="input" type="checkbox" name="checkboxB" value="showHitokoto" /><div class="slider"></div></label></div>
+                <div class="brickContainer">Show Welcome Message<label class="switch"><input class="input" type="checkbox" name="checkboxB" value="showWelcome" /><div class="slider"></div></label></div>
+                <div class="brickContainer">Custom Model API<!-- <li style="margin-top:10px;margin-bottom:3px;">Custom Model API</li> --><input class="inputText" type="text" name="checkboxB" placeholder="Enter Custom API URL" required></div>
                 
-                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">🔮 悬浮球设置</h3>
+                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">🔮 Floating Ball Settings</h3>
                 <div class="brickContainer" style="height: 100px;">
                     <div id="localBubbleCurrentPath" style="margin:auto 10px;text-align: center;height:80px;width:80px;background-size:cover;border-radius:7px;box-shadow: 0px 0px 5px 0px rgba(45, 45, 45, 0.75);"></div>
-                    <div href="javascript:;" class="button">选择文件<input id="localBubbleSelect" type="file" class="inputFile" accept="image/*" onchange="javascript:{document.getElementById('fileInfoBubble').innerHTML = document.getElementById('localBubbleSelect').files[0].path.replaceAll('\\','/')
+                    <div href="javascript:;" class="button">Choose File<input id="localBubbleSelect" type="file" class="inputFile" accept="image/*" onchange="javascript:{document.getElementById('fileInfoBubble').innerHTML = document.getElementById('localBubbleSelect').files[0].path.replaceAll('\\','/')
                 document.getElementById('localBubbleCurrentPath').style.background = 'url('+document.getElementById('localBubbleSelect').files[0].path.replaceAll('\\','/')+') no-repeat center';document.getElementById('localBubbleCurrentPath').style.backgroundSize='cover'}"></div>
                 </div> <!-- 获取Bubble本地背景文件路径 -->
-                <div class="brickContainer">当前选定背景<div id="fileInfoBubble" class="fileInfo" style="border: none;">未选定</div></div>
+                <div class="brickContainer">Currently Selected Background<div id="fileInfoBubble" class="fileInfo" style="border: none;">Not selected</div></div>
 
-                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">📢 日程通知设置</h3>
-                <div class="brickContainer">启用自定义通知音<label class="switch"><input class="input" type="checkbox" name="CalendarAlert" value="CalendarAlert" /><div class="slider"></div></label></div>
-                <div class="brickContainer">已选择音频：
+                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">📢 Schedule Notification Settings</h3>
+                <div class="brickContainer">Enable Custom Notification Sound<label class="switch"><input class="input" type="checkbox" name="CalendarAlert" value="CalendarAlert" /><div class="slider"></div></label></div>
+                <div class="brickContainer">Selected Audio：
                     <div id="fileInfoAudioPath" class="fileInfo" style="border: none;left: 105px;text-align: left;width:45%"></div>
-                    <div href="javascript:;" class="button">选择音频<input id="localAudioSelect" type="file" class="inputFile" accept="audio/*" onchange="javascript:{document.getElementById('fileInfoAudioPath').innerHTML = document.getElementById('localAudioSelect').files[0].path.replaceAll('\\','/')}"></div>
+                    <div href="javascript:;" class="button">Choose Audio<input id="localAudioSelect" type="file" class="inputFile" accept="audio/*" onchange="javascript:{document.getElementById('fileInfoAudioPath').innerHTML = document.getElementById('localAudioSelect').files[0].path.replaceAll('\\','/')}"></div>
                 </div> <!-- 获取自定义音频文件路径 -->
                 
-                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">📚 高级设置<a style="font-size: 13px;"> 自定义更多高级设置项</a></h3>
-                <div class="brickContainer"><div>自定义搜索引擎<br><!--<li style="margin-top:10px;margin-bottom:3px;">自定义搜索引擎</li>--><a class="brickSubtitle">输入搜索引擎URL</a></div>
+                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">📚 Advanced Settings<a style="font-size: 13px;"> Customize more advanced options Settings</a></h3>
+                <div class="brickContainer"><div>Custom Search Engine<br><!--<li style="margin-top:10px;margin-bottom:3px;">Custom Search Engine</li>--><a class="brickSubtitle">Enter Search Engine URL</a></div>
                 <input class="inputText" type="text" name="checkboxB" placeholder="默认为Bing" required></div>
-                <div class="brickContainer"><div>高清晰度渲染<br/><a class="brickSubtitle">使用2x放大后降采样使模型边缘更锐利</a></div><label class="switch"><input class="input" type="checkbox" name="checkboxB" value="highQualityRender" checked="true" disabled><div class="slider"></div></label></div>
+                <div class="brickContainer"><div>High-Quality Rendering<br/><a class="brickSubtitle">Use 2x upscaling followed by downsampling to make the model edges sharper.</a></div><label class="switch"><input class="input" type="checkbox" name="checkboxB" value="highQualityRender" checked="true" disabled><div class="slider"></div></label></div>
                 <div class="brickContainer">
-                    <div>编辑waifu-tips问候语<br><a class="brickSubtitle">编辑悬浮对话泡的问候语与点击响应</a></div>
-                    <div href="javascript:;" class="button" style="width:140px" onclick="">编辑文件</div></div>
-                <div class="brickContainer">启用看板娘自动回正<label class="switch"><input class="input" type="checkbox" name="checkboxB" value="enableAutoalign" /><div class="slider"></div></label></div>
+                    <div>Edit Waifu Tips Greeting<br><a class="brickSubtitle">Edit Hover Dialog and Click Response Greetings</a></div>
+                    <div href="javascript:;" class="button" style="width:140px" onclick="">Edit file</div></div>
+                <div class="brickContainer">Enable Auto-Alignment<label class="switch"><input class="input" type="checkbox" name="checkboxB" value="enableAutoalign" /><div class="slider"></div></label></div>
 
-                <div class="brickContainer" style="height: 60px;color: #ff4848;"><div>清除数据<br><a class="brickSubtitle" style="font-size: 13px;color: #ff4848;"> 清除所有用户数据（谨慎操作！）</a></div>
-                    <button type="button" value="清除数据" onclick="localStorage.clear();" class="button_red" style="width:120px">清除所有数据</button>
+                <div class="brickContainer" style="height: 60px;color: #ff4848;"><div>Clear Data<br><a class="brickSubtitle" style="font-size: 13px;color: #ff4848;"> Clear all user data (proceed with caution!) </a></div>
+                    <button type="button" value="Clear Data" onclick="localStorage.clear();" class="button_red" style="width:120px">Clear All Data</button>
                 </div>
                 
                 <!-- <div class="box">
-                    <button type="button" value="保存并应用" onclick="submitB();" class="btn">保存并应用</button>
+                    <button type="button" value="Save and Apply" onclick="submitB();" class="btn">Save and Apply</button>
                 </div> -->
-                <!-- <input type="button" value="保存并应用" onclick="submitB()" style="margin-top:7px;"/> -->
+                <!-- <input type="button" value="Save and Apply" onclick="submitB()" style="margin-top:7px;"/> -->
             <!-- </form> -->
             </div>
         </div>
         <div class="setpage" id="setpageC" style="display: none;">
             <div class="setpageINNER">
             <!-- <form> -->
-                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">🧪 实验功能</h3>
-                <div href="javascript:;" class="button" value="保存并应用" onclick="submitC();" style="top: 10px;user-select: none;width:auto" >&nbsp;&nbsp;保存并应用&nbsp;&nbsp;</div>
-                <div class="brickContainer" style="background-color:#433519"><svg t="1669908006524" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1391" data-darkreader-inline-fill="" width="20" height="20"><path d="M510.032 93.09c-229.9 0-416.94 187.924-416.94 418.91 0 230.986 187.92 418.91 418.908 418.91 230.986 0 418.91-187.924 418.91-418.91 0-230.986-188.804-418.91-420.88-418.91z" fill="#fce100" p-id="1392" style="--darkreader-inline-fill: #fce100;" data-darkreader-inline-fill=""></path><path d="M558.546 723.78h-93.092v-93.09h93.092zM558.546 539.928h-93.092V302.546h93.092z" fill="#000" p-id="1393" style="--darkreader-inline-fill: #181a1b;" data-darkreader-inline-fill=""></path></svg><p style="margin-left:13px;font-size: 15px;font-weight: bold;">这里的设置具有实验性</p></div>
-                <!--checkboxC0--><div class="brickContainer">全屏任意拖拽<label class="switch"><input class="input" type="checkbox" name="checkboxC" value="unlimitedDrag"><div class="slider"></div></label></div>
-                <!--checkboxC1--><div class="brickContainer">开发人员选项<label class="switch"><input class="input" type="checkbox" name="checkboxC" value="developerMode"><div class="slider"></div></label></div>
-                <!--checkboxC2--><div class="brickContainer">启用本地模型文件加载<label class="switch"><input class="input" type="checkbox" name="checkboxC" value="localModelLoad"><div class="slider"></div></label></div>
+                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">🧪 Experimental Features</h3>
+                <div href="javascript:;" class="button" value="Save and Apply" onclick="submitC();" style="top: 10px;user-select: none;width:auto" >&nbsp;&nbsp;Save and Apply&nbsp;&nbsp;</div>
+                <div class="brickContainer" style="background-color:#433519"><svg t="1669908006524" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1391" data-darkreader-inline-fill="" width="20" height="20"><path d="M510.032 93.09c-229.9 0-416.94 187.924-416.94 418.91 0 230.986 187.92 418.91 418.908 418.91 230.986 0 418.91-187.924 418.91-418.91 0-230.986-188.804-418.91-420.88-418.91z" fill="#fce100" p-id="1392" style="--darkreader-inline-fill: #fce100;" data-darkreader-inline-fill=""></path><path d="M558.546 723.78h-93.092v-93.09h93.092zM558.546 539.928h-93.092V302.546h93.092z" fill="#000" p-id="1393" style="--darkreader-inline-fill: #181a1b;" data-darkreader-inline-fill=""></path></svg><p style="margin-left:13px;font-size: 15px;font-weight: bold;">The settings here are experimental.</p></div>
+                <!--checkboxC0--><div class="brickContainer">Unlimited Dragging<label class="switch"><input class="input" type="checkbox" name="checkboxC" value="unlimitedDrag"><div class="slider"></div></label></div>
+                <!--checkboxC1--><div class="brickContainer">Developer Mode<label class="switch"><input class="input" type="checkbox" name="checkboxC" value="developerMode"><div class="slider"></div></label></div>
+                <!--checkboxC2--><div class="brickContainer">Enable Local Model File Loading<label class="switch"><input class="input" type="checkbox" name="checkboxC" value="localModelLoad"><div class="slider"></div></label></div>
                 <div class="brickContainer" style="background-color:#2b4f6c;height:auto">
                     <p style="margin-left:13px;font-size: 15px;line-height: 20px;">
-                        根据Live2D Cubism EULA许可，本程序使用官方在线CDN提供的引擎JS加载Live2D V3及以上版本模型。若您需要离线使用，请前往 <a onclick="shell.openExternal('https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js')" style="font-weight: bold;text-decoration: underline;">此链接</a> 下载官方JS引擎文件，并放置在程序根目录\Resource文件夹下。</p>
+                        According to the Live2D Cubism EULA, this program uses the official online CDN to load the engine JS for Live2D V3 and above models. If you need to use it offline, please visit <a onclick="shell.openExternal('https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js')" style="font-weight: bold;text-decoration: underline;">this link</a> to download the official JS engine file and place it in the program's root directory under the "Resource" folder.
+                    </P>
                 </div>
                 <div class="brickContainer" style="height:65px">
-                    <div>选择本地模型文件<br><a class="brickSubtitle" style="color: crimson;top: 5px;position: relative;">注意，请选择模型的JSON清单文件！<br/>如 model.json(V2); xxx.model3.json(V3+)</a></div>
-                    <div href="javascript:;" class="button" style="width:140px">选择模型文件<input id="localModelSelect" type="file" class="inputFile" onchange="javascript:{document.getElementById('localModelCurrentPath').innerHTML = document.getElementById('localModelSelect').value;$('#localModelCurrentPath').scrollLeft( $('#localModelCurrentPath')[0].scrollWidth);}"></div><!--获取本地文件路径 -->
+                    <div>Choose Local Model File<br><a class="brickSubtitle" style="color: crimson;top: 5px;position: relative;">Attention, please select the model's JSON manifest file! <br/>如 model.json(V2); xxx.model3.json(V3+)</a></div>
+                    <div href="javascript:;" class="button" style="width:140px">Choose Model File<input id="localModelSelect" type="file" class="inputFile" onchange="javascript:{document.getElementById('localModelCurrentPath').innerHTML = document.getElementById('localModelSelect').value;$('#localModelCurrentPath').scrollLeft( $('#localModelCurrentPath')[0].scrollWidth);}"></div><!--获取本地文件路径 -->
                     <!-- <input id="localModelSelect" type="file" style="opacity: 0;"> 获取本地文件路径 --></div>
-                <div class="brickContainer">当前选定模型<div id="localModelCurrentPath" class="fileInfo" style="border: none;"></div></div>
-                <!--checkboxC3--><div class="brickContainer">V3+模型缩放百分比
+                <div class="brickContainer">Currently Selected Model<div id="localModelCurrentPath" class="fileInfo" style="border: none;"></div></div>
+                <!--checkboxC3--><div class="brickContainer">V3+ Model Scale Percentage
                     <button type='button' value='-' class='button' style='width:30px;right:125px;font-size: 16px;' onclick='$("#localModelV3Scale").val(parseFloat($("#localModelV3Scale").val())-1)'>-</button>
                     <input id="localModelV3Scale" class="inputText" style="width: 60px;text-align: center;right:55px" type="text" name="checkboxC" placeholder="输入缩放比率，如100即为100%" required>
                     <button type='button' value='+' class='button' style='width:30px;right:20px;font-size: 16px; ' onclick='$("#localModelV3Scale").val(parseFloat($("#localModelV3Scale").val())+1)'>+</button>
                 </div>
-                <!--checkboxC4--><div class="brickContainer">V2模型缩放百分比
+                <!--checkboxC4--><div class="brickContainer">V2 Model Scale Percentage
                     <button type='button' value='-' class='button' style='width:30px;right:125px;font-size: 16px;' onclick='$("#localModelV2Scale").val(parseFloat($("#localModelV2Scale").val())-1)'>-</button>
                     <input id="localModelV2Scale" class="inputText" style="width: 60px;text-align: center;right:55px" type="text" name="checkboxC" placeholder="输入缩放比率，如100即为100%" required>
                     <button type='button' value='+' class='button' style='width:30px;right:20px;font-size: 16px; ' onclick='$("#localModelV2Scale").val(parseFloat($("#localModelV2Scale").val())+1)'>+</button>
                 </div>
-                <!--checkboxC5--><div class="brickContainer">模型X轴偏移量(适用moc2&3+)
+                <!--checkboxC5--><div class="brickContainer">Model X-Axis Offset (applicable to moc2 & 3+)
                     <button type='button' value='-' class='button' style='width:30px;right:125px' onclick='$("#localModelV3Xaxis").val(parseFloat($("#localModelV3Xaxis").val())-1)'>◀</button>
                     <input id="localModelV3Xaxis" class="inputText" style="width: 60px;text-align: center;right:55px" type="text" name="checkboxC" placeholder="输入X轴偏移，向右为正，填入无需单位" required>
                     <button type='button' value='+' class='button' style='width:30px;right:20px' onclick='$("#localModelV3Xaxis").val(parseFloat($("#localModelV3Xaxis").val())+1)'>▶</button>
                 </div>
-                <!--checkboxC6--><div class="brickContainer">模型Y轴偏移量(适用moc2&3+)
+                <!--checkboxC6--><div class="brickContainer">Model Y-Axis Offset (applicable to moc2 & 3+)
                     <button type='button' value='-' class='button' style='width:30px;right:125px' onclick='$("#localModelV3Yaxis").val(parseFloat($("#localModelV3Yaxis").val())-1)'>▲</button>
                     <input id="localModelV3Yaxis" class="inputText" style="width: 60px;text-align: center;right:55px" type="text" name="checkboxC" placeholder="输入Y轴偏移，向下为正，填入无需单位" required>
                     <button type='button' value='+' class='button' style='width:30px;right:20px' onclick='$("#localModelV3Yaxis").val(parseFloat($("#localModelV3Yaxis").val())+1)'>▼</button>
                 </div>
 
-                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">💬 语言模型设置</h3>
-                <!--checkboxC7--><div class="brickContainer"><div>ChatGPT对话支持<br><a class="brickSubtitle" style="top: 5px;position: relative;">默认代理:127.0.0.1:7890</a></div><label class="switch"><input class="input" type="checkbox" name="checkboxC" value="ChatGPTFunc"><div class="slider"></div></label></div>
-                <!--checkboxC8--><div class="brickContainer">ChatGPT API Key<input class="inputText" type="text" name="checkboxC" placeholder="输入API Key" required></div>
+                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">💬 Language Model Settings</h3>
+                <!--checkboxC7--><div class="brickContainer"><div>Enable ChatGPT Support<br><a class="brickSubtitle" style="top: 5px;position: relative;">Default proxy: 127.0.0.1:7890</a></div><label class="switch"><input class="input" type="checkbox" name="checkboxC" value="ChatGPTFunc"><div class="slider"></div></label></div>
+                <!--checkboxC8--><div class="brickContainer">ChatGPT API Key<input class="inputText" type="text" name="checkboxC" placeholder="Enter API Key" required></div>
                 <!--checkboxCopenURL-->
-                <div class="brickContainer"><div>ChatGPT API地址<br><a class="brickSubtitle" style="top: 5px;position: relative;">默认API地址为OpenAI</a></div>
-                    <input class="inputText" type="text" name="checkboxCopenURL" placeholder="若要自定义API，请输入自定API地址" required/></div>
+                <div class="brickContainer"><div>ChatGPT API URL<br><a class="brickSubtitle" style="top: 5px;position: relative;">Default API address is OpenAI</a></div>
+                    <input class="inputText" type="text" name="checkboxCopenURL" placeholder="To customize the API, please enter the custom API address." required/></div>
                 <!--checkboxCAImodel-->
-                <div class="brickContainer"><div>GPT模型名称<br><a class="brickSubtitle" style="top: 5px;position: relative;">默认为gpt-3.5-turbo</a></div>
-                    <input class="inputText" type="text" name="checkboxCAImodel" placeholder="输入所调用的模型名称" required/>
+                <div class="brickContainer"><div>GPT Model Name<br><a class="brickSubtitle" style="top: 5px;position: relative;">Default is gpt-3.5-turbo</a></div>
+                    <input class="inputText" type="text" name="checkboxCAImodel" placeholder="Default is gpt-3.5-turbo" required/>
                 </div>
                 <!--checkboxCprompt-->
-                <div class="brickContainer"><div>GPT预置Prompt<br><a class="brickSubtitle" style="top: 5px;position: relative;">输入初始Prompt</a></div>
-                    <input class="inputText" type="text" name="checkboxCprompt" placeholder="输入初始Prompt"
-                        value="你是崩坏星穹铁道的三月七。我是星穹铁道的开拓者。你需要模仿她与我进行对话。"
+                <div class="brickContainer"><div>GPT Predefined Prompt<br><a class="brickSubtitle" style="top: 5px;position: relative;">Enter initial prompt</a></div>
+                    <input class="inputText" type="text" name="checkboxCprompt" placeholder="Enter initial prompt"
+                        value="You are March 7th from Honkai: Star Rail. I am the Trailblazer of Star Rail. You need to imitate her and have a conversation with me."
                         required/>
                 </div>
                 <!-- checkboxC7
                 <div class="brickContainer"> GPT API Key<input class="inputText" type="text" name="checkboxC" placeholder="输入API提供商的API Key" required/></div> -->
-                <!--checkboxC9--><div class="brickContainer"><div>OpenRouter AI支持<br><a class="brickSubtitle" style="top: 5px;position: relative;">OpenRouter启动将自动关闭ChatGPT支持</a></div><label class="switch"><input class="input" type="checkbox" name="checkboxC" value="OpenRouterFunc"><div class="slider"></div></label></div>
+                <!--checkboxC9--><div class="brickContainer"><div>Enable OpenRouter AI Support<br><a class="brickSubtitle" style="top: 5px;position: relative;">OpenRouter will automatically disable ChatGPT support upon startup.</a></div><label class="switch"><input class="input" type="checkbox" name="checkboxC" value="OpenRouterFunc"><div class="slider"></div></label></div>
                 <div class="brickContainer">
-                    <div>OpenRouter 控制台<br><a class="brickSubtitle" style="top: 5px;position: relative;">了解并设置你的OpenRouter账户</a></div>
-                    <div class="button" onclick="shell.openExternal('https://openrouter.ai/account');" style="width:80px;right:110px">账号设置</div><div onclick="shell.openExternal('https://github.com/JimHans/live2d-kanban-desktop/wiki')" class="button" style="width:80px">使用指南</div></div>
-                <!--checkboxC10--><div class="brickContainer">OpenRouter API Key<input class="inputText" type="text" name="checkboxC" placeholder="输入API Key" required></div>
+                    <div>OpenRouter Console<br><a class="brickSubtitle" style="top: 5px;position: relative;">Understand and set up your OpenRouter account.</a></div>
+                    <div class="button" onclick="shell.openExternal('https://openrouter.ai/account');" style="width:80px;right:110px">Account Settings</div><div onclick="shell.openExternal('https://github.com/JimHans/live2d-kanban-desktop/wiki')" class="button" style="width:80px">User Guide</div></div>
+                <!--checkboxC10--><div class="brickContainer">OpenRouter API Key<input class="inputText" type="text" name="checkboxC" placeholder="Enter API Key" required></div>
                 
                 <!-- <div class="box">
-                    <button type="button" value="保存并应用" onclick="submitC();" class="btn">保存并应用</button>
+                    <button type="button" value="Save and Apply" onclick="submitC();" class="btn">Save and Apply</button>
                 </div> -->
             <!-- </form> -->
             </div>
         </div>
         <div class="setpage" id="setpageInfo" style="display: none;">
             <div class="setpageINNER">
-                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">🚀 关于Kanban-Desktop</h3>
+                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">🚀 About Kanban-Desktop</h3>
                 <div style="text-align: center;"><img src="./assets/app.png" alt="App Info" width="84" height="84"></div>
-                <div class="brickContainer">当前版本<p id="App_Ver" class="brickRightText"></p></div>
+                <div class="brickContainer">Current Version<p id="App_Ver" class="brickRightText"></p></div>
                 <div class="brickContainer" id="if_have_update"><div id="update_ver_get" style="position:absolute;left:10px"></div>
-                <button type="button" value="查看更新" onclick="shell.openExternal('https://github.com/JimHans/live2d-kanban-desktop/releases/latest');" class="button" id="update_button">查看更新</button></div>
+                <button type="button" value="Check for Updates" onclick="shell.openExternal('https://github.com/hrnph/live2d-kanban-desktop/releases/latest');" class="button" id="update_button">Check for Updates</button></div>
                 <div class="brickContainer">Build Version<p id="App_Build" class="brickRightText"></p></div>
                 <!-- *版本信息 -->
-                <div class="brickContainer">Node.js 版本<span id="node-version" class="brickRightText"></span></div>
-                <div class="brickContainer">Chromium 内核版本<span id="chrome-version" class="brickRightText"></span></div>
-                <div class="brickContainer">Electron 框架版本<span id="electron-version" class="brickRightText"></span></div>
+                <div class="brickContainer">Node.js Version<span id="node-version" class="brickRightText"></span></div>
+                <div class="brickContainer">Chromium Core Version<span id="chrome-version" class="brickRightText"></span></div>
+                <div class="brickContainer">Electron Framework Version<span id="electron-version" class="brickRightText"></span></div>
                 <div class="brickContainer">Designed By<span class="brickRightText">JimHan @ Zerolite Studio</span><!--<p style="font-size: 14px;margin-bottom:-5px;">Designed By JimHan @ Zerolite Studio</p>--></div>
             </div>
         </div>
@@ -209,15 +210,15 @@
         document.getElementById(`${versionType}-version`).innerText = process.versions[versionType]  // Get Framework
         }
         // *更新检测
-        $.getJSON("https://api.github.com/repos/jimhans/live2d-kanban-desktop/releases/latest", function(data1){
+        $.getJSON("https://api.github.com/repos/hrnph/live2d-kanban-desktop/releases/latest", function(data1){
             document.getElementById('update_button').style.backgroundColor='#252525';
             if(data1.tag_name!=("v"+package.version)){
             document.getElementById('setTabInfo').style.backgroundColor='#393d1b';
             document.getElementById('info_icon').style.fill='#6ccb5f';
-            document.getElementById('update_ver_get').innerText='有新版本：版本号 '+data1.tag_name;
+            document.getElementById('update_ver_get').innerText='A new version is available: version number '+data1.tag_name;
             document.getElementById('if_have_update').style.backgroundColor='#393d1b';}
-        else{document.getElementById('update_ver_get').innerText='当前是最新版本';document.getElementById('if_have_update').style.backgroundColor='#2b4f6c';}
-        }).fail(function() {document.getElementById('update_ver_get').innerText='无法检测到版本更新数据'}); 
+        else{document.getElementById('update_ver_get').innerText='You are using the latest version';document.getElementById('if_have_update').style.backgroundColor='#2b4f6c';}
+        }).fail(function() {document.getElementById('update_ver_get').innerText='Unable to detect Version Update Data'}); 
     }
 
     // 初始化PageA复选框
@@ -253,7 +254,7 @@
     if ((!localStorage.getItem("customAPI")) || localStorage.getItem("customAPI") == ""){checkboxBInit[4].value="//waifuapi.zerolite.cn/live2d-api/";}
     else {checkboxBInit[4].value=localStorage.getItem("customAPI");} //自定义API获取
     if ((!localStorage.getItem("customSearch")) || localStorage.getItem("customSearch") == ""){checkboxBInit[5].value="https://www.bing.com/search?q=";}
-    else {checkboxBInit[5].value=localStorage.getItem("customSearch");} //自定义搜索引擎获取
+    else {checkboxBInit[5].value=localStorage.getItem("customSearch");} //Custom Search Engine获取
 
     if (localStorage.getItem(checkboxBInit[7].value) == 'true') {
             checkboxBInit[7].checked = true;}
@@ -263,9 +264,9 @@
 
     //初始化PageC复选框
     var checkboxCInit = document.getElementsByName("checkboxC");
-    if (localStorage.getItem(checkboxCInit[0].value) == 'true') {checkboxCInit[0].checked = true;} //全屏任意拖拽
+    if (localStorage.getItem(checkboxCInit[0].value) == 'true') {checkboxCInit[0].checked = true;} //Unlimited Dragging
     if (localStorage.getItem(checkboxCInit[2].value) == 'true') {checkboxCInit[2].checked = true; //本地模型文件加载
-        document.getElementById("localModelCurrentPath").innerHTML="当前文件为"+localStorage.getItem('localModelPath');}
+        document.getElementById("localModelCurrentPath").innerHTML="The current file is"+localStorage.getItem('localModelPath');}
     
     if ((!localStorage.getItem("localModelV3Scale")) || localStorage.getItem("localModelV3Scale") == '100'){checkboxCInit[3].value='100';}
     else {checkboxCInit[3].value=localStorage.getItem("localModelV3Scale");} //自定义模型缩放比率获取V3
@@ -276,7 +277,7 @@
     if ((!localStorage.getItem("localModelV3Yaxis")) || localStorage.getItem("localModelV3Yaxis") == '40'){checkboxCInit[6].value='40';}
     else {checkboxCInit[6].value=localStorage.getItem("localModelV3Yaxis");} //自定义模型Y轴偏移获取
 
-    if (localStorage.getItem(checkboxCInit[7].value) == 'true') {checkboxCInit[7].checked = true;} //ChatGPT对话支持
+    if (localStorage.getItem(checkboxCInit[7].value) == 'true') {checkboxCInit[7].checked = true;} //Enable ChatGPT Support
     if ((!localStorage.getItem("ChatgptKey")) || localStorage.getItem("ChatgptKey") == ""){checkboxCInit[8].value="";}
     else {checkboxCInit[8].value=localStorage.getItem("ChatgptKey");} //ChatGPT APIKey获取
 
@@ -311,7 +312,7 @@
     
     // function closeset() {ipcRenderer.send('Settings','Close');} // 关闭
     
-    function setpageA() { //点击显示设置页面A
+    function setpageA() { //点击显示Settings页面A
         document.getElementById("setpageA").style.display="block";
         document.getElementById("setpageB").style.display="none";
         document.getElementById("setpageC").style.display="none";
@@ -327,7 +328,7 @@
         // document.getElementById("setTabC").style.color="black";
     }
     
-    function setpageB() { //点击显示设置页面B
+    function setpageB() { //点击显示Settings页面B
         document.getElementById("setpageA").style.display="none";
         document.getElementById("setpageB").style.display="block";
         document.getElementById("setpageC").style.display="none";
@@ -343,7 +344,7 @@
         // document.getElementById("setTabC").style.color="black";
     }
     
-    function setpageC() { //点击显示设置页面C
+    function setpageC() { //点击显示Settings页面C
         document.getElementById("setpageA").style.display="none";
         document.getElementById("setpageB").style.display="none";
         document.getElementById("setpageC").style.display="block";
@@ -399,7 +400,7 @@
         else {localStorage.setItem(checkboxB[7].value,false);} //自动回正
 
         localStorage.setItem("customAPI",checkboxB[4].value); //保存自定义API
-        localStorage.setItem("customSearch",checkboxB[5].value); //保存自定义搜索引擎
+        localStorage.setItem("customSearch",checkboxB[5].value); //保存Custom Search Engine
         if(document.getElementById('localBubbleSelect').files[0]) //保存自定义气泡
         {
             //获取读取文件的File对象
@@ -409,7 +410,7 @@
             var BubblePic = 0;
             if(!/image\/\w+/.test(selectedBubble.type))           //判断获取的是否为图片文件
             {
-                alert("请确保文件为图像文件");
+                alert("Please ensure the file is an image file.");
                 return false;
             }
             var reader=new FileReader();
@@ -432,7 +433,7 @@
                 var AudioUrl = selectedAudio.path;
                 if(!/audio\/\w+/.test(selectedAudio.type))           //判断获取的是否为音频文件
                 {
-                    alert("请确保文件为音频文件"); return false;
+                    alert("Please ensure the file is an audio file."); return false;
                 }
                 localStorage.setItem("fileInfoAudioPath", AudioUrl); //保存Path
                 localStorage.setItem("CalendarAlert",true);
@@ -476,7 +477,7 @@
             var Filename = selectedModel.name;//读取选中文件的文件名
             var ModelUrl = selectedModel.path;
             localStorage.setItem("localModelPath",ModelUrl); //保存ModelPath
-            document.getElementById("localModelCurrentPath").innerHTML="当前文件为"+localStorage.getItem('localModelPath');
+            document.getElementById("localModelCurrentPath").innerHTML="The current file is"+localStorage.getItem('localModelPath');
             console.log(Filename,ModelUrl);
         }
         ipcRenderer.send('Mainpage','Refresh');

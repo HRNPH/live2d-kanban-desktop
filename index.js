@@ -5,28 +5,28 @@ const dialog = require('electron').dialog;
 const path = require('path');
 const fs = require('fs');
 const internal = require('stream');
-let tray = null;/*托盘全局对象*/
-let settings = null;/*设置全局对象*/
-let settings_ontop =false;/*设置总在最上-全局flag*/
-let calcrater = 0; var PoinThrough = '点击穿透';
+let tray = null;/*Global Tray Object*/
+let settings = null;/*Global Settings Object*/
+let settings_ontop =false;/*Always-On-Top Global Flag*/
+let calcrater = 0; var PoinThrough = 'Enable click-through';
 var packageGet = require("./package.json");
 const schedule = require('node-schedule'); //引入定时任务模块
 
 
 function createWindow () {
-  //获取屏幕分辨率
+  //Get screen resolution
   var screenElectron = require('electron').screen;
-  // 创建主程序浏览器窗口
+  // Create Main Application Browser Window
   const win = new BrowserWindow({
     width:  330,
     height: 490,
     x: screenElectron.getPrimaryDisplay().workAreaSize.width-360,
     y: screenElectron.getPrimaryDisplay().workAreaSize.height-500,
-    skipTaskbar: true,//不显示在任务栏
-    alwaysOnTop: true,//置顶显示
-    transparent: true,//底部透明
+    skipTaskbar: true,//Do not show in taskbar
+    alwaysOnTop: true,//Always on top
+    transparent: true,//Transparent background
     frame: false,
-    resizable: false,//不可调节大小
+    resizable: false,//Non-resizable
     icon: './assets/applogo.png',
     webPreferences: {
       devTools: true,
@@ -44,7 +44,7 @@ function createWindow () {
 
   //win.webContents.openDevTools();
 
-  win.webContents.on("before-input-event", (event, input) => { //禁用alt+f4
+  win.webContents.on("before-input-event", (event, input) => { //Disable alt+f4
     if(input.key === "F4" && input.alt){
           event.preventDefault();
     }
@@ -54,18 +54,18 @@ function createWindow () {
 
   function settingsShow () {
     // let settings = null;
-    //设置窗口打开监听
+    //Settings window open listener
     var setwidth = screenElectron.getPrimaryDisplay().workAreaSize.width;
     var setheight = screenElectron.getPrimaryDisplay().workAreaSize.height;
-    //新建设置窗口
+    //Create new settings window
     /*let*/ settings = new BrowserWindow({
       width:  parseInt(setheight*5/8),//parseInt(setwidth/3),
       height: parseInt(setheight*3/4),//parseInt((setwidth/3)*(20/16)),
       minWidth: 470,
       minHeight: 320,
-      skipTaskbar: false,//显示在任务栏
-      alwaysOnTop: settings_ontop,//置顶显示
-      transparent: false,//底部透明
+      skipTaskbar: false,//Show in taskbar
+      alwaysOnTop: settings_ontop,//Always on top
+      transparent: false,//Transparent background
       frame: true,
         titleBarStyle: "hidden",
         titleBarOverlay: {
@@ -85,7 +85,7 @@ function createWindow () {
     settings.loadFile('Settings.html');
     //settings.webContents.openDevTools();
   
-    settings.webContents.on("before-input-event", (event, input) => { //禁用alt+f4
+    settings.webContents.on("before-input-event", (event, input) => { //Disable alt+f4
       if(input.key === "F4" && input.alt){
             event.preventDefault();
       }
@@ -94,7 +94,7 @@ function createWindow () {
   }
 
 
-  //系统托盘右键菜单
+  //System tray right-click menu
   var trayMenuTemplate = [
     {
       label: 'Kanban Desktop',
@@ -103,25 +103,25 @@ function createWindow () {
     },
     {
       type: 'separator'
-    }, //分隔线
+    }, //Separator
     {
-      label: 'Kanban-Desktop 设置',
+      label: 'Kanban-Desktop Settings',
       click: function () {
         if(settings==null||settings.isDestroyed()){settingsShow ();}
         else {
           settings.show();
-            // //设置窗口打开监听
+            // //Settings window open listener
             // var setwidth = screenElectron.getPrimaryDisplay().workAreaSize.width;
             // var setheight = screenElectron.getPrimaryDisplay().workAreaSize.height;
-            // //新建设置窗口
+            // //Create new settings window
             // let settings = new BrowserWindow({
             //   width: parseInt(setwidth/3),
             //   height: parseInt((setwidth/3)*(9.5/16)),
             //   minWidth: 400,
             //   minHeight: 200,
-            //   skipTaskbar: false,//显示在任务栏
-            //   alwaysOnTop: false,//置顶显示
-            //   transparent: true,//底部透明
+            //   skipTaskbar: false,//Show in taskbar
+            //   alwaysOnTop: false,//Always on top
+            //   transparent: true,//Transparent background
             //   frame: false,
             //   resizable: true,
             //   icon: './assets/applogo.png',
@@ -137,57 +137,57 @@ function createWindow () {
             // settings.loadFile('Settings.html');
             // //settings.webContents.openDevTools();
   
-            // settings.webContents.on("before-input-event", (event, input) => { //禁用alt+f4
+            // settings.webContents.on("before-input-event", (event, input) => { //Disable alt+f4
             //   if(input.key === "F4" && input.alt){
             //         event.preventDefault();
             //   }
             //   settings.webContents.setIgnoreMenuShortcuts(input.key === "F4" && input.alt);
             // })
         }  
-      } //打开设置
+      } //Open Settings
     },
     {
-      label: '检查更新',
-      click: function () {shell.openExternal("http://studio.zerolite.cn")} //打开相应页面
+      label: 'Check for Updates',
+      click: function () {shell.openExternal("http://studio.zerolite.cn")} //Open corresponding page
     },
     {
-      label: '关于',
+      label: 'About',
       click: function () {
         dialog.showMessageBox({
-          title  : '关于', 
+          title  : 'About', 
           type  : 'info', 
           message : packageGet.name+" v"+packageGet.version+' Stable Powered By Electron™.'
         })
-      } //打开相应页面
+      } //Open corresponding page
     },
     {
       type: 'separator'
-    }, //分隔线
+    }, //Separator
     {
         label: PoinThrough,
         submenu: [
           {
-            label: '关闭点击穿透',
+            label: 'Disable click-through',
             click: function () {win.setIgnoreMouseEvents(false);}, //设置点击穿透
             type: 'radio'
           },
           {
-            label: '启用点击穿透',
+            label: 'Enable click-through',
             click: function () {win.setIgnoreMouseEvents(true);}, //设置点击穿透
             type: 'radio'
           },
         ],
     },
     {
-      label: '总在最上',
+      label: 'Always on top',
       submenu: [
         {
-          label: '开启总在最上',
+          label: 'Enable always on top',
           click: function () {win.setAlwaysOnTop(true);settings_ontop=true;}, //设置总在最上
           type: 'radio'
         },
         {
-          label: '关闭总在最上',
+          label: 'Disable always on top',
           click: function () {win.setAlwaysOnTop(false);settings_ontop=false;}, //取消设置总在最上
           type: 'radio'
         },
@@ -195,20 +195,20 @@ function createWindow () {
   },
   {
     type: 'separator'
-  }, //分隔线
+  }, //Separator
     {
-        label: '退出',
+        label: 'Exit',
         click: function () {
           dialog.showMessageBox({
             type:"info",
-            buttons:["我手滑了","告辞！"],
-            title:"退出",
+            buttons:["I misclicked","告辞！"],
+            title:"Exit",
             message:`真的要退出嘛？`
           }).then((result)=>{
               if(result.response==1){
-                  console.log("确定");app.quit();
+                  console.log("Confirm");app.quit();
               }else if(result.response==0){
-                  console.log("取消")
+                  console.log("Cancel")
               }
           }).catch((error)=>{
               console.log(error);
@@ -226,13 +226,13 @@ function createWindow () {
   tray.setToolTip('Kanban-Desktop');
 
   app.setAppUserModelId('com.Zerolite.Kanban-Desktop');
-  Menu.setApplicationMenu(null); //去除Linux菜单栏
+  Menu.setApplicationMenu(null); //Remove Linux menu bar
   //设置此图标的上下文菜单
   tray.setContextMenu(contextMenu);
 
   /*监听线程*/
 
-  //主界面隐藏/刷新进程监听
+  //Main page hide/refresh process listener
   ipcMain.on("Mainpage",(event,data) => {
     console.log(data);
     if(data == 'Hide') {event.preventDefault(); win.hide();}
@@ -240,12 +240,12 @@ function createWindow () {
     else if(data == 'Refresh') {win.reload();}
   });
 
-  //外部链接打开进程监听
+  //External link open process listener
   ipcMain.on('open-url', (event, url) => {
     shell.openExternal(url);
   });
 
-  //设置窗口打开监听
+  //Settings window open listener
   ipcMain.on("Settings",(event,data) => {
     console.log(data);
     if(data == 'Open') {
@@ -253,18 +253,18 @@ function createWindow () {
       else {settings.show();}
       // if(settings)settings.show();
       // else {
-      //     //设置窗口打开监听
+      //     //Settings window open listener
       //     var setwidth = screenElectron.getPrimaryDisplay().workAreaSize.width;
       //     var setheight = screenElectron.getPrimaryDisplay().workAreaSize.height;
-      //     //新建设置窗口
+      //     //Create new settings window
       //     let settings = new BrowserWindow({
       //       width: parseInt(setwidth/3),
       //       height: parseInt((setwidth/3)*(9.5/16)),
       //       minWidth: 400,
       //       minHeight: 200,
-      //       skipTaskbar: false,//显示在任务栏
-      //       alwaysOnTop: false,//置顶显示
-      //       transparent: true,//底部透明
+      //       skipTaskbar: false,//Show in taskbar
+      //       alwaysOnTop: false,//Always on top
+      //       transparent: true,//Transparent background
       //       frame: false,
       //       resizable: true,
       //       icon: './assets/applogo.png',
@@ -280,7 +280,7 @@ function createWindow () {
       //     settings.loadFile('Settings.html');
       //     //settings.webContents.openDevTools();
 
-      //     settings.webContents.on("before-input-event", (event, input) => { //禁用alt+f4
+      //     settings.webContents.on("before-input-event", (event, input) => { //Disable alt+f4
       //       if(input.key === "F4" && input.alt){
       //             event.preventDefault();
       //       }
@@ -291,18 +291,18 @@ function createWindow () {
     if(data == 'Close') {event.preventDefault(); settings.hide();}
   });
 
-  //开发人员工具打开监听
+  //Developer tools open listener
   ipcMain.on("dev",(event,data) => {
     console.log(data); 
     if(data == 'Open') {settings.webContents.openDevTools();win.webContents.openDevTools();}
   });
 
-  //返回是否打包状态
+  //Return whether packaged
   ipcMain.handle('get-is-packaged', async (event) => {
     return app.isPackaged;
   });
 
-  // 日程提醒监听线程
+  // Schedule reminder listener
   var job = null;
   var isTimeSet = false;
   var ScheduleTime = null;
@@ -316,7 +316,7 @@ function createWindow () {
         ScheduleTime = null;
         ScheduleName = null;
         ScheduleDate = null;
-        // job.cancel(); // 停止任务
+        // job.cancel(); // Stop task
         job = clearInterval(job);
         job = null; // 将job重置为null，避免重复取消已经取消的任务
         console.log("Cancelled Job");
@@ -369,23 +369,23 @@ app.on('activate', () => {
   }
 })
 
-// 悬浮球监听线程
+// Floating ball listener thread
 ipcMain.on("PTBox",(event,data) => {
   console.log(data);
   if(data == 'Open') {
-      //获取屏幕分辨率
+      //Get screen resolution
   var screenElectron = require('electron').screen;
-  //新建悬浮球窗口
+  //Create floating ball window
   const ptbox = new BrowserWindow({
     width: 70,
     height: 70,
     x: screenElectron.getPrimaryDisplay().workAreaSize.width-100,
     y: screenElectron.getPrimaryDisplay().workAreaSize.height-80,
-    skipTaskbar: true,//不显示在任务栏
-    alwaysOnTop: true,//置顶显示
-    transparent: true,//底部透明
+    skipTaskbar: true,//Do not show in taskbar
+    alwaysOnTop: true,//Always on top
+    transparent: true,//Transparent background
     frame: false,
-    resizable: false,//不可调节大小
+    resizable: false,//Non-resizable
     webPreferences: {
       devTools: true,
       nodeIntegration: true,
