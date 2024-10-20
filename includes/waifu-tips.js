@@ -29,7 +29,7 @@ const WindowsToaster = nodeRequire('node-notifier').WindowsToaster; //WindowsToa
 // 后端接口
 live2d_settings.modelAPI             = '//waifuapi.zerolite.cn/live2d-api/';   // 自建 API 修改这里
 live2d_settings.tipsMessage          = 'waifu-tips.json';            // 同目录下可省略路径
-live2d_settings.hitokotoAPI          = 'hitokoto.cn';                // 一言 API，可选 'lwl12.com', 'hitokoto.cn', 'jinrishici.com'(古诗词)
+live2d_settings.quoteAPI          = 'anime-news-networks';                // 一言 API，可选 'lwl12.com', 'hitokoto.cn', 'jinrishici.com'(古诗词)
 live2d_settings.eyeProtInfo          = true;                         //启用使用时长提醒
 
 //使用时长提醒需要的变量
@@ -452,53 +452,86 @@ function loadTipsMessage(result) {
     }
     
     function showHitokoto() {
-        switch(live2d_settings.hitokotoAPI) {
-            case 'lwl12.com':
-                $.getJSON('https://api.lwl12.com/hitokoto/v1?encode=realjson',function(result){
-                    if (!empty(result.source)) {
-                        var text = waifu_tips.hitokoto_api_message['lwl12.com'][0];
-                        if (!empty(result.author)) text += waifu_tips.hitokoto_api_message['lwl12.com'][1];
-                        text = text.render({source: result.source, creator: result.author});
-                        window.setTimeout(function() {showMessage(text+waifu_tips.hitokoto_api_message['lwl12.com'][2], 3000, true);}, 5000);
-                    } showMessage(result.text, 5000, true);
-                });break;
-            case 'fghrsh.net':
-                $.getJSON('https://api.fghrsh.net/hitokoto/rand/?encode=jsc&uid=3335',function(result){
-                    if (!empty(result.source)) {
-                        var text = waifu_tips.hitokoto_api_message['fghrsh.net'][0];
-                        text = text.render({source: result.source, date: result.date});
-                        window.setTimeout(function() {showMessage(text, 3000, true);}, 5000);
-                        showMessage(result.hitokoto, 5000, true);
+        switch(live2d_settings.quoteAPI) {
+            case 'anime-news-networks':
+                // Fetching anime titles using the ANN API (Example fetching anime details by ID)
+                fetch('https://cdn.animenewsnetwork.com/encyclopedia/api.xml?anime=4658')
+                    .then(response => response.text()) // ANN API returns XML, so parse it as text
+                    .then(xml => {
+                        // Parsing XML response
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(xml, "application/xml");
+                        
+                        // Example of extracting specific data (title, date, etc.)
+                        const title = xmlDoc.querySelector('anime > info[type="Main title"]').textContent;
+                        const date = xmlDoc.querySelector('anime > info[type="Vintage"]').textContent;
+    
+                        // Rendering message using waifu_tips and ANN data
+                        let text = waifu_tips.hitokoto_api_message['anime-news-networks'][0];
+                        text = text.render({title: title, date: date});
+    
+                        // Delaying the message for the user interface
+                        window.setTimeout(function() {
+                            showMessage(text + waifu_tips.hitokoto_api_message['anime-news-networks'][1], 3000, true);
+                        }, 5000);
+    
+                        showMessage(title + " was released on " + date, 5000, true);
+                    })
+                    .catch(error => {
+                            console.error('Error fetching data from ANN API:', error)
+                            showMessage('Failed to fetch data from ANN API', 3000, true);
+                        }
+                    );
+                break;
+            case 'animechan.io':
+                console.info('Fetching from animechan.io API');
+                fetch('https://animechan.io/api/v1/quotes/random')
+                .then(response => response.json())
+                .then(result => {
+                    if (result.status === 'success') {
+                        const quote = result.data.content;
+                        const anime = result.data.anime.name;
+                        const character = result.data.character.name;
+                        let text = waifu_tips.hitokoto_api_message['animechan.io'][0];
+                        text = text.render({anime: anime, character: character});
+                        window.setTimeout(function() { showMessage(text + waifu_tips.hitokoto_api_message['animechan.io'][1], 3000, true); }, 5000);
+                        showMessage(quote, 5000, true);
+                    } else {
+                        console.error("Failed to fetch from animechan.io API");
+                        showMessage('Failed to fetch data from animechan.io API', 3000, true);
                     }
-                });break;
-            case 'jinrishici.com':
-                $.ajax({
-                    url: 'https://v2.jinrishici.com/one.json',
-                    xhrFields: {withCredentials: true},
-                    success: function (result, status) {
-                        if (!empty(result.data.origin.title)) {
-                            var text = waifu_tips.hitokoto_api_message['jinrishici.com'][0];
-                            text = text.render({title: result.data.origin.title, dynasty: result.data.origin.dynasty, author:result.data.origin.author});
-                            window.setTimeout(function() {showMessage(text, 3000, true);}, 5000);
-                        } showMessage(result.data.content, 5000, true);
-                    }
-                });break;
+                })
+                .catch(error => console.error('Error fetching data:', error));break;
     	    default:
-    	        $.getJSON('https://v1.hitokoto.cn',function(result){
-            	    if (!empty(result.from)) {
-						var uuid1 = result.uuid;
-						var url0 = 'https://hitokoto.cn/api/restful/v1/like?sentence_uuid='+uuid1;
-                        var text = waifu_tips.hitokoto_api_message['hitokoto.cn'][0];
-						$.getJSON(url0,function(rate){
-					    $.each(rate, function (i, items) {
-						
-                  text = text.render({source: result.from, creator: result.creator, rate: rate["data"][0]["total"]});}); });
-                        window.setTimeout(function() {showMessage(text, 3000, true);}, 5000);
-            	    }
-				
-				
-                showMessage(result.hitokoto, 5000, true);
-                });
+                console.info('No quote API selected, defaulting to anime-news-networks');
+                // Fetching anime titles using the ANN API (Example fetching anime details by ID)
+                fetch('https://cdn.animenewsnetwork.com/encyclopedia/api.xml?anime=4658')
+                    .then(response => response.text()) // ANN API returns XML, so parse it as text
+                    .then(xml => {
+                        // Parsing XML response
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(xml, "application/xml");
+                        
+                        // Example of extracting specific data (title, date, etc.)
+                        const title = xmlDoc.querySelector('anime > info[type="Main title"]').textContent;
+                        const date = xmlDoc.querySelector('anime > info[type="Vintage"]').textContent;
+    
+                        // Rendering message using waifu_tips and ANN data
+                        let text = waifu_tips.hitokoto_api_message['anime-news-networks'][0];
+                        text = text.render({title: title, date: date});
+    
+                        // Delaying the message for the user interface
+                        window.setTimeout(function() {
+                            showMessage(text + waifu_tips.hitokoto_api_message['anime-news-networks'][1], 3000, true);
+                        }, 5000);
+    
+                        showMessage(title + " was released on " + date, 5000, true);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data from ANN API:', error)
+                        showMessage('Failed to fetch data from ANN API', 3000, true);
+                    });
+                break;
     	}
     }
 

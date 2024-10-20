@@ -37,7 +37,9 @@
             "lwl12.com": ["This quote is from <span style=\"color:#0099cc;\">『{source}』</span>, submitted by <span style=\"color:#0099cc;\">{creator}</span>."],
             "fghrsh.net": ["This quote is from <span style=\"color:#0099cc;\">『{source}』</span>, collected by <span style=\"color:#0099cc;\">FGHRSH</span> on {date}!"],
             "jinrishici.com": ["This poem is from <span style=\"color:#0099cc;\">《{title}》</span>, written by the {dynasty} poet {author}!"],
-            "hitokoto.cn": ["This quote is from <span style=\"color:#0099cc;\">『{source}』</span>, submitted by <span style=\"color:#0099cc;\">{creator}</span> on hitokoto.cn. It has received <span style=\"color:#0099cc;\">{rate}</span> likes so far~"]
+            "hitokoto.cn": ["This quote is from <span style=\"color:#0099cc;\">『{source}』</span>, submitted by <span style=\"color:#0099cc;\">{creator}</span> on hitokoto.cn. It has received <span style=\"color:#0099cc;\">{rate}</span> likes so far~"],
+            "animechan.io": ["This quote is from <span style=\"color:#0099cc;\">『{source}』</span>, spoken by <span style=\"color:#0099cc;\">{character}</span> in <span style=\"color:#0099cc;\">{anime}</span>."],
+            "anime-news-networks": ["from anime news network", "from anime news network"]
         }
     },
     "mouseover": [
