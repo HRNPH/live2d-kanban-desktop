@@ -10,6 +10,7 @@
     "start": "electron .",
     "pack": "electron-builder --dir",
     "pack-linux": "electron-builder --linux",
+    "pack-mac": "electron-builder --mac",
     "dist": "electron-builder"
   },
   "keywords": [
@@ -70,7 +71,8 @@
     }
   },
   "devDependencies": {
-    "electron": "^22.3.25"
+    "electron": "^22.3.25",
+    "electron-builder": "^25.1.8"
   },
   "dependencies": {
     "@electron/remote": "^2.1.0",
