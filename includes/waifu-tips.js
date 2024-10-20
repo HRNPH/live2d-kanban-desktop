@@ -573,7 +573,7 @@ function loadTipsMessage(result) {
     $('.waifu-tool .fui-Set').click(function() {ipcRenderer.send('Settings','Open');}); // 设置调起
 
     /*夜间模式*/
-    $('.waifu-tool .fui-moon').click(function () { cover(0.3); showMessage('夜间模式开启成功!按alt+↑可提高亮度,按alt+↓可降低亮度,按alt+x可取消夜间模式', 5000, true) });
+    $('.waifu-tool .fui-moon').click(function () { cover(0.3); showMessage('Night mode activated successfully! Press alt+↑ to increase brightness, alt+↓ to decrease brightness, and alt+x to disable night mode.', 5000, true) });
 	
     /*schedule reminder module click*/
 	if(live2d_settings.eyeProtInfo){
