@@ -201,9 +201,9 @@ function createWindow () {
         click: function () {
           dialog.showMessageBox({
             type:"info",
-            buttons:["I misclicked","告辞！"],
+            buttons:["I misclicked","Farewell"],
             title:"Exit",
-            message:`真的要退出嘛？`
+            message:` Are you sure you want to exit?`
           }).then((result)=>{
               if(result.response==1){
                   console.log("Confirm");app.quit();
