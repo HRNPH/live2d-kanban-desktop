@@ -12,7 +12,7 @@ importers:
         specifier: ^2.1.0
         version: 2.1.2(electron@22.3.27)
       axios:
-        specifier: ^1.7.4
+        specifier: ^1.7.7
         version: 1.7.7
       bingai-js:
         specifier: ^1.7.0
