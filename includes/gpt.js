@@ -9,10 +9,11 @@ async function gptrun(sentense, answerDiv) {
     // document.getElementById(answerDiv).style.overflowY='auto';
     // document.getElementById(answerDiv).innerHTML='正在请求中...';
     // TODO:如果Talkhistory过长的话会导致传输时间过长。之后看情况增加截取动画的功能。
+    // TODO: History System Didn't Get Implemented Yet.
     if (talkHistory.length == 0) {
         talkHistory.push({ "role": "system", "content": localStorage.getItem("prompt") });
     }
-    showMessageLocked('正在请求中...', undefined);
+    showMessageLocked('Thinking...', undefined);
     var data = {
         role: 'user',
         content: sentense,
@@ -58,7 +59,7 @@ async function gptrun(sentense, answerDiv) {
 }
 
 async function OpenRouterRun(sentense, answerDiv) {
-    showMessageLocked('正在请求中...', undefined);
+    showMessageLocked('Thinking...', undefined);
     const response = await axios({
         method: 'POST',
         responseType: 'json',
