@@ -100,3 +100,11 @@ Open sourced under the GPL v3.0 license.
   [4]: https://github.com/JimHans/AI-waifu
   [5]: https://github.com/lxfriday/ChatGPT-API
   [6]: https://github.com/Himehane/live2d_on_website
+
+# Instruction
+## Self Build
+```bash
+pnpm i
+pnpm run pack-mac
+echo "Done!, Check the dist folder for the app and put .dmg file into the Application folder."
+```
