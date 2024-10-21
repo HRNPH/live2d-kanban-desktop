@@ -179,6 +179,9 @@
                 <!-- <div class="box">
                     <button type="button" value="Save and Apply" onclick="submitC();" class="btn">Save and Apply</button>
                 </div> -->
+                <h3 style="margin-top:15px;margin-bottom:15px;margin-left:13px;">🔊 Audio Model Settings</h3>
+                <div class="brickContainer">Elevenslab API Key<input class="inputText" type="text" name="checkboxElevenslabKey" placeholder="Enter API Key" required></div> 
+                <div class="brickContainer">Voice Id<input class="inputText" type="text" name="checkboxElevenslabVoiceId" placeholder="Enter Voice Id" required></div>
             <!-- </form> -->
             </div>
         </div>
@@ -280,6 +283,13 @@
     if (localStorage.getItem(checkboxCInit[7].value) == 'true') {checkboxCInit[7].checked = true;} //Enable ChatGPT Support
     if ((!localStorage.getItem("ChatgptKey")) || localStorage.getItem("ChatgptKey") == ""){checkboxCInit[8].value="";}
     else {checkboxCInit[8].value=localStorage.getItem("ChatgptKey");} //ChatGPT APIKey获取
+    
+    // Elevenslabs Settings
+    if ((!localStorage.getItem("ElevenslabKey")) || localStorage.getItem("ElevenslabKey") == ""){document.getElementsByName("checkboxElevenslabKey")[0].value="";}
+    else {document.getElementsByName("checkboxElevenslabKey")[0].value=localStorage.getItem("ElevenslabKey");}
+    // Voice ID
+    if ((!localStorage.getItem("ElevenslabVoiceId")) || localStorage.getItem("ElevenslabVoiceId") == ""){document.getElementsByName("checkboxElevenslabVoiceId")[0].value="";}
+    else {document.getElementsByName("checkboxElevenslabVoiceId")[0].value=localStorage.getItem("ElevenslabVoiceId");}
 
     if (
             !localStorage.getItem("openURL") ||
@@ -304,7 +314,7 @@
             document.getElementsByName("checkboxCAImodel")[0].value="gpt-3.5-turbo"
         } else {
             document.getElementsByName("checkboxCAImodel")[0].value=localStorage.getItem("AImodel")
-        } 
+        }
 
     if (localStorage.getItem(checkboxCInit[9].value) == 'true') {checkboxCInit[9].checked = true;} //OpenRouter支持
     if ((!localStorage.getItem("OpenRouterKey")) || localStorage.getItem("OpenRouterKey") == ""){checkboxCInit[10].value="";}
@@ -463,6 +473,9 @@
         localStorage.setItem("AImodel",document.getElementsByName("checkboxCAImodel")[0].value);
 
         localStorage.setItem("ChatgptKey",checkboxC[8].value); //保存chatgptKey
+        // Elevenslabs Settings
+        localStorage.setItem("ElevenslabKey",document.getElementsByName("checkboxElevenslabKey")[0].value); //保存ElevenslabKey
+        localStorage.setItem("ElevenslabVoiceId",document.getElementsByName("checkboxElevenslabVoiceId")[0].value); //保存ElevenslabVoiceId
 
         if (checkboxC[9].checked == true) {localStorage.setItem(checkboxC[9].value,true);
             localStorage.setItem(checkboxC[7].value,false);checkboxCInit[7].checked = false;} //OpenRouter开关
