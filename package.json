@@ -3,7 +3,7 @@
   "title": "kanban-desktop",
   "version": "2.9.0",
   "description": "Kanban Desktop Electron Based",
-  "homepage": "https://github.com/jimhans/live2d-kanban-desktop/",
+  "homepage": "https://github.com/hrnph/live2d-kanban-desktop/",
   "buildinf": "Stable Build 2024-08-01",
   "main": "index.js",
   "scripts": {

@@ -90,7 +90,7 @@ async function OpenRouterRun(sentense, answerDiv) {
             validateStatus(status) { return true },
             headers: {
                 "Authorization": `Bearer ` + localStorage.getItem("OpenRouterKey"),
-                "HTTP-Referer": `https://github.com/JimHans/live2d-kanban-desktop`,
+                "HTTP-Referer": `https://github.com/hrnph/live2d-kanban-desktop`,
                 "X-Title": `kanban-desktop`,
                 "Content-Type": "application/json"
             },
