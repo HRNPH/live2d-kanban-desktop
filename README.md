@@ -129,8 +129,14 @@ Open sourced under the GPL v3.0 license.
 [6]: https://github.com/Himehane/live2d_on_website
 
 # Instruction
+## Pre-Requirements
+- [Node.js](https://nodejs.org/en)
+- [pnpm](https://pnpm.io/) (can just `npm install -g pnpm` if you have npm from node.js)
+- [Git](https://git-scm.com/downloads)
 
-## Self Build (MacOS)
+## Installation
+
+### Self Build (MacOS)
 
 ```bash
 git clone https://github.com/HRNPH/live2d-kanban-desktop.git
@@ -140,20 +146,20 @@ pnpm run pack-mac
 echo "Done!, Check the dist folder for the app and put .dmg file into the Application folder."
 ```
 
-## Self Build (Windows)
+### Self Build (Windows)
 
 ```bash
-git clone
+git clone https://github.com/HRNPH/live2d-kanban-desktop.git
 cd live2d-kanban-desktop
 pnpm i
 pnpm run pack
 echo "Done!, Check the dist folder for the app and put .exe file into the Application folder."
 ```
 
-## Self Build (Linux)
+### Self Build (Linux)
 
 ```bash
-git clone
+git clone https://github.com/HRNPH/live2d-kanban-desktop.git
 cd live2d-kanban-desktop
 pnpm i
 pnpm run pack-linux
