@@ -1,6 +1,6 @@
 <p align="center">
 <img src="./assets/app.png" width=100px height=100px></p>
-<h1 align="center"> Kanban-Desktop (Moidified)</h1>
+<h1 align="center"> Kanban-Desktop (Modified)</h1>
 <h3 align="center"> An AI Based Kanban for Windows and Linux* Desktop Users Originally Developed by <span><a href='https://github.com/JimHans/live2d-kanban-desktop'>JimHans</a></span></h3>
 <br/>
 <h3 align="center"> Modified And Increased Features By <span><a href='https://github.com/hrnph/live2d-kanban-desktop'>HRNPH</a></span></h3>
